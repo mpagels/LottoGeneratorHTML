@@ -1,6 +1,7 @@
 #container {
     display: flex;
-    background-color: #cd853f;
+    border: 1px solid #e6e5e5;
+    border-bottom: none;
     justify-content: center;
     width: 300px;
     height: auto;
@@ -8,11 +9,12 @@
     flex-flow: row wrap;
     border-radius: 10px;
     padding: 10px;
-    margin-bottom: 20px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 .box {
-    border : 1px solid black;
+    border : 1px solid  #acacac;
     margin: 5px;
     padding:5px;
     border-radius: 50px;
@@ -20,10 +22,8 @@
     text-align: center;
 }
 
-#controls {
-
-    display: flex;
-    justify-content: center;
+.controls {
+    flexht;
    
 }
 
@@ -43,4 +43,36 @@ button {
     display: inline-block;
     font-family: sans-serif;
     cursor: default;
+}
+
+.container-controls {
+    background-color: #e9da04;
+    border: 1px solid #fff350;
+    height: 40px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 10px;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.random {
+    height: 40px;
+    cursor: pointer;
+}
+
+.trash-btn {
+    height: 40px;
+    cursor: pointer;
+    fill: #535353;
+}
+
+.deactivate {
+    fill:  rgba(180, 180, 180, 0.644)
 }

@@ -1,7 +1,5 @@
 "use strict"
 
-
-
 const buildNumbers = (anzahlNumbers) => {
     let counter = 1
     while (counter <= anzahlNumbers) {
@@ -13,16 +11,21 @@ const buildNumbers = (anzahlNumbers) => {
     }
 } 
 
+const deleteRandomSelection = () => {
+    container.childNodes.forEach((x) => {
+        if (x.nodeName !== "#text") {
+            x.style.backgroundColor = ""
+            x.style.color = "black"
+        }
+    })
+}
+
 let container = document.getElementById("container")
 buildNumbers(49)
 
 const chooseRandom = () => {
     
-    container.childNodes.forEach((x) => {
-        if (x.nodeName !== "#text") {
-            x.style.backgroundColor = ""
-        }
-    })
+    deleteRandomSelection()
     
     let counter = 0
     let choosenNumbers = []
@@ -32,20 +35,22 @@ const chooseRandom = () => {
             choosenNumbers.push(currentChooseNumber)
             counter++
         }
-
     }
-    console.log(choosenNumbers)
+    // console.log(choosenNumbers)
     choosenNumbers.forEach(num => {
 
         container.childNodes[num].style.backgroundColor = "#3F87CD"
-    })
-
-    
-   
+        container.childNodes[num].style.color = "white"
+        trashBtn.classList.remove("deactivate")
+    }) 
 }
 
-
-
-let button = document.getElementById("button")
-button.addEventListener("click", chooseRandom)
-
+let randomBtn = document.querySelector(".random")
+randomBtn.addEventListener("click", chooseRandom)
+let trashBtn = document.querySelector(".trash").children[0]
+trashBtn.addEventListener("click", () => {
+    if (!trashBtn.classList.contains("deactivate")) {
+        deleteRandomSelection()
+        trashBtn.classList.add("deactivate")
+    }
+})
